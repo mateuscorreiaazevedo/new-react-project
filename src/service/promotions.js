@@ -1,7 +1,7 @@
 import { api } from "./api"
 
 export const promotionService = {
-    getAll: () => {
-        return api.get('/promotions?_embed=comments')
+    getAll: ({...prop}) => {
+        return api.get('/promotions?_embed=comments', {...prop})
     }
 }

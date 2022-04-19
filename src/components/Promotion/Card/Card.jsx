@@ -5,18 +5,16 @@ import {
   CardTitle,
   CardPrice,
   CardComments,
-  CardLink
-} from "./style"
+  CardLink,
+  CardInfo
+} from "../style"
 
 export default function PromotionCard({ elements }) {
-
-  
-  
   
   return (
     <Cardbox>
       <CardImg src={elements.imageUrl} alt={elements.title} />
-      <div>
+      <CardInfo>
         <CardTitle>{elements.title}</CardTitle>
         <CardPrice>R${elements.price}</CardPrice>
         <CardComments>
@@ -35,7 +33,7 @@ export default function PromotionCard({ elements }) {
             IR PARA O SITE
           </CardLink>
         </CardComments>
-      </div>
+      </CardInfo>
     </Cardbox>
   )
 }

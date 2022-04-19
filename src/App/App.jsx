@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Form from "../components/Form/Form"
 import PromotionList from "../components/Promotion/List/List"
+import { promotionService } from "../service/promotions"
 
 export default function App() {
   
