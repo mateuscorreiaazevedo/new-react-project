@@ -1,4 +1,4 @@
-// import { promotionService } from "../../../service/promotions"
+import { promotionService } from "../../../service/promotions"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import PromotionCard from "../Card/Card"
@@ -8,7 +8,8 @@ export default function PromotionList() {
     const [promotions, setPromotions] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:9002/promotions?_embed=comments')
+        promotionService
+            .getAll()
             .then(res => setPromotions(res.data))
             .catch(err => alert(err.message))
     }, [])
