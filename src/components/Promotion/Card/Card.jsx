@@ -1,13 +1,18 @@
+import axios from "axios"
 import {
   Cardbox,
   CardImg,
   CardTitle,
   CardPrice,
   CardComments,
-  CardLink,
+  CardLink
 } from "./style"
 
 export default function PromotionCard({ elements }) {
+
+  
+  
+  
   return (
     <Cardbox>
       <CardImg src={elements.imageUrl} alt={elements.title} />
