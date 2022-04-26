@@ -6,7 +6,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "api": "npx json-server --watch db.json --port 9002"
+    "api": "npx json-server --watch db.json --port 9000"
   },
   "dependencies": {
     "axios": "^0.26.1",

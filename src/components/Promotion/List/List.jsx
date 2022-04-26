@@ -1,7 +1,7 @@
 import { promotionService } from "../../../service/promotions"
-import { useEffect, useState } from "react"
 import PromotionCard from "../Card/Card"
 import { ListContainer, ListHeader } from '../style'
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import PromotionSearch from "../Search/Search"
 
