@@ -1,30 +1,9 @@
-import {
-  FormContainer,
-  FormGroup,
-  FormLabel,
-  FormInput,
-  FormBtn,
-} from "./Style";
+import { FormContainer, FormGroup, FormLabel, FormInput, FormBtn } from "./Style";
 import { useForm } from "../../hooks/useForm";
-import { useNavigate } from "react-router-dom";
-import { FormService } from "../../service/postPromotion";
-
 
 export default function Form() {
-  const { setValue, values } = useForm();
-  let navigate = useNavigate()
-  
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  
-    FormService
-      .save(values)
-      .then((response) => {
-          navigate("/");
-      });
-  };
-
-  
+  const { setValue, handleSubmit } = useForm();
+    
   return (
     <div>
       <h1>Promo Show</h1>
@@ -43,22 +22,12 @@ export default function Form() {
 
         <FormGroup>
           <FormLabel htmlFor="imageUrl">Imagem (URL)</FormLabel>
-          <FormInput
-            type="text"
-            name="imageUrl"
-            id="imageUrl"
-            onChange={setValue}
-          />
+          <FormInput type="text" name="imageUrl" id="imageUrl" onChange={setValue} />
         </FormGroup>
 
         <FormGroup>
           <FormLabel htmlFor="price">Preço</FormLabel>
-          <FormInput
-            type="number"
-            name="price"
-            id="price"
-            onChange={setValue}
-          />
+          <FormInput type="number" name="price" id="price" onChange={setValue} />
         </FormGroup>
         <div>
           <FormBtn type="submit" onClick={handleSubmit}>

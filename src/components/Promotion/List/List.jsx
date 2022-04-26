@@ -1,33 +1,14 @@
-import { promotionService } from "../../../service/promotions"
 import PromotionCard from "../Card/Card"
 import { ListContainer, ListHeader } from '../style'
-import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import PromotionSearch from "../Search/Search"
+import { usePromotions } from "../../../hooks/usePromotions"
 
-export default function PromotionList({ loading, promotion }) {
-    
-    const [promotions, setPromotions] = useState([])
-    const [search, setSearch] = useState('')
-    
-    const handleChange = (e) => {
-        let event = e.target.value
-        return setSearch(event)
-    }
-    useEffect(() => {
-        const params = {}
-        if (search) {
-            params.title_like = search
-        }
-        promotionService
-        .getAll({ params })
-        .then(res => setPromotions(res.data))
-        .catch(err => alert(err.message))
-    }, [search])
-    
-    if(loading) {
-        return <div>Carregando...</div>
-    }
+
+export default function PromotionList() {
+    const { handleChange, loading, promotions, search} = usePromotions();
+
+
     return (
         <ListContainer>
             <ListHeader>
@@ -40,6 +21,7 @@ export default function PromotionList({ loading, promotion }) {
                 value={search}
                 onChange={handleChange}
             />
+            {!!loading && <div>Carregando...</div>}
             {promotions.map(promotion => {
                 return <PromotionCard elements={promotion} key={promotion.id}  />
             })}
